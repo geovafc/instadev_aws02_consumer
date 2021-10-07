@@ -56,7 +56,7 @@ docker {
 
     // Please specify the image metadata here
     val userName = "fcgeovane"
-    val version = "1.0.0"
+    val version = "1.0.1"
     name = "$userName/${project.name}:$version"
 
     // Please add the tags if you need more registries/userNames/tags.
@@ -90,6 +90,10 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("com.amazonaws:aws-java-sdk-sqs:1.11.887")
+    implementation("org.springframework:spring-jms:5.2.9.RELEASE")
+    implementation("com.amazonaws:amazon-sqs-java-messaging-lib:1.0.8")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

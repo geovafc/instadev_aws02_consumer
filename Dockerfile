@@ -19,5 +19,5 @@ VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
 # COPY --from=builder /usr/src/app/build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8080
+EXPOSE 9090
 ENTRYPOINT ["java","-jar","/app.jar"]
