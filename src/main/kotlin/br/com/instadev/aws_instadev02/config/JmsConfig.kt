@@ -41,7 +41,9 @@ class JmsConfig(
         val factory = DefaultJmsListenerContainerFactory()
         factory.setConnectionFactory(sqsConnectionFactory)
         factory.setDestinationResolver(DynamicDestinationResolver())
+//        Número de threads que eu quero ter consumindo as minhas mensagens por fila
         factory.setConcurrency("2")
+//        Quando eu receber a mensagem quero que o JMS der o reconhecimento de que a mensagem já foi tratada
         factory.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE)
 
         return factory
