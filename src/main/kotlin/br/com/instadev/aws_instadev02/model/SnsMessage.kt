@@ -6,13 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty
 //Se tiver alguma outra propriedade no json e você não encontrar aqui no meu modelo, ignore.
 //Não precisa tentar fazer o parse de algum campo desconhecido para o objeto SnsMessage
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class SnsMessage(@JsonProperty("Message") private var message: String,
-                 @JsonProperty("Type") private var type: String,
+data class SnsMessage(@JsonProperty("Message") var message: String,
+                 @JsonProperty("Type") var type: String,
 //                 Arn do tópico de quem publicou
-                 @JsonProperty("TopicArn") private var topicArn: String,
-                 @JsonProperty("Timestamp") private var timestamp: String,
-                 @JsonProperty("MessageId") private var messageId: String,
+                 @JsonProperty("TopicArn") var topicArn: String,
+                 @JsonProperty("Timestamp") var timestamp: String,
+                 @JsonProperty("MessageId") var messageId: String,
 
                  ) {
-
 }
