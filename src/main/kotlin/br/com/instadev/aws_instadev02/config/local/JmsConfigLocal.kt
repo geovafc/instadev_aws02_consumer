@@ -1,8 +1,11 @@
-package br.com.instadev.aws_instadev02.config
+package br.com.instadev.aws_instadev02.config.local
 
 import com.amazon.sqs.javamessaging.ProviderConfiguration
 import com.amazon.sqs.javamessaging.SQSConnectionFactory
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain
+import com.amazonaws.client.builder.AwsClientBuilder
+import com.amazonaws.regions.Regions
+import com.amazonaws.services.sqs.AmazonSQSClient
 import com.amazonaws.services.sqs.AmazonSQSClientBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
@@ -18,8 +21,8 @@ import javax.jms.Session
 @Configuration
 //Ligar o mecanismo do jms na aplicação
 @EnableJms
-@Profile("!local")
-class JmsConfig() {
+@Profile("local")
+class JmsConfigLocal() {
 
     @Value("\${aws.region}")
     lateinit var awsRegion: String
@@ -32,13 +35,13 @@ class JmsConfig() {
 //        Cria o connectionFactory,
         val sqsConnectionFactory = SQSConnectionFactory(
             ProviderConfiguration(),
-            AmazonSQSClientBuilder.standard()
-//                    Qual a região que vou usar
-                .withRegion(awsRegion)
-//                    Onde estão as credenciais de acesso e os papéis que podem ser usados
-                .withCredentials(DefaultAWSCredentialsProviderChain())
-                .build()
-        );
+           AmazonSQSClient.builder()
+               .withEndpointConfiguration(AwsClientBuilder
+//                       Endpoint do nosso local stack
+                   .EndpointConfiguration("http://localhost:4566",
+                       Regions.US_EAST_1.getName()))
+               .withCredentials(DefaultAWSCredentialsProviderChain())
+               .build())
 
 //        Config do JMS para poder acessar a fila
         val factory = DefaultJmsListenerContainerFactory()
