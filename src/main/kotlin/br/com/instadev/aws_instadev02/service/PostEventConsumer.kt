@@ -37,7 +37,7 @@ class PostEventConsumer {
 
         var postEvent = objectMapper.readValue<PostEvent>(envelope.data)
 
-        logger.info("Post event received - Event {} - PostId {} - ", envelope.eventType, postEvent.postId)
+        logger.info("Post event received - Event {} - PostId {} - MessageId {} - ", envelope.eventType, postEvent.postId, snsMessage.messageId)
 
     }
 }
