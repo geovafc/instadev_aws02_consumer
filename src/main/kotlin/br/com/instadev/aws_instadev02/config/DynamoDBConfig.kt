@@ -1,5 +1,6 @@
 package br.com.instadev.aws_instadev02.config
 
+import br.com.instadev.aws_instadev02.repository.PostEventLogRepository
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain
 import com.amazonaws.regions.Regions
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB
@@ -17,8 +18,7 @@ import javax.enterprise.inject.Default
 //Spring boot vai executar essa classe quando a aplicação subir
 @Configuration
 //Habilita a configuração do dynamodb para poder utilizar uma camada de acesso ao BD
-@EnableDynamoDBRepositories(
-    basePackageClasses = PostEventLogRepository.class)
+@EnableDynamoDBRepositories(basePackages = arrayOf("br.com.instadev.aws_instadev02.repository"))
 //            As configurações dessa classe será aplicada em todas as tabelas que a nossa app tiver.
     class DynamoDBConfig {
 
