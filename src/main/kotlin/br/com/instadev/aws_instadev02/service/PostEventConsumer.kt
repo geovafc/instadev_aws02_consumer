@@ -20,7 +20,7 @@ import javax.jms.TextMessage
 class PostEventConsumer {
 
     private val logger = LoggerFactory.getLogger(javaClass)
-    private lateinit var objectMapper: ObjectMapper
+    private var objectMapper: ObjectMapper
     private var postEventLogRepository: PostEventLogRepository
 
     @Autowired

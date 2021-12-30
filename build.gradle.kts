@@ -56,7 +56,7 @@ docker {
 
     // Please specify the image metadata here
     val userName = "fcgeovane"
-    val version = "1.1.0"
+    val version = "1.2.0"
     name = "$userName/${project.name}:$version"
 
     // Please add the tags if you need more registries/userNames/tags.
@@ -94,8 +94,10 @@ dependencies {
     implementation("org.springframework:spring-jms:5.2.9.RELEASE")
     implementation("com.amazonaws:amazon-sqs-java-messaging-lib:1.0.8")
 
-    api("aws.sdk.kotlin:dynamodb:0.4.0-alpha")
+    implementation ("com.amazonaws:aws-java-sdk-dynamodb:1.11.490")
     implementation ("com.github.derjust:spring-data-dynamodb:5.1.0")
+
+
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
