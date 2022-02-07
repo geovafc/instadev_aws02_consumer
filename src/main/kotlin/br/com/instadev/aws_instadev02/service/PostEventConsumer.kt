@@ -51,8 +51,8 @@ class PostEventConsumer {
         val timeStamp = System.currentTimeMillis()
 
         var postEventLog = PostEventLog()
-        postEventLog.pk = postEvent.postId.toString() + "_" + postEvent.userName
-        postEventLog.sk = envelope.eventType.toString() + "_" + timeStamp
+        postEventLog.id.pk = postEvent.postId.toString() + "_" + postEvent.userName
+        postEventLog.id.sk = envelope.eventType.toString() + "_" + timeStamp
         postEventLog.eventType = envelope.eventType
         postEventLog.postId = postEvent.postId
         postEventLog.username = postEvent.userName

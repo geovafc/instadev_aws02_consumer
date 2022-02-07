@@ -7,4 +7,6 @@ Project responsible for consuming InstaDev posts
 
 Videos, projects, courses and tutorials used as the basis for build this project.
 
-Projeto: [kotlin-spring-dynamo-example](https://github.com/bexway/kotlin-spring-dynamo-example) 
+Projet: [kotlin-spring-dynamo-example](https://github.com/bexway/kotlin-spring-dynamo-example) 
+
+Tutorial: [using-kotlin-spring-boot-with-dynamoDB](https://www.youtube.com/watch?v=mU5MpxmuNsk)
