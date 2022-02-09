@@ -56,7 +56,7 @@ docker {
 
     // Please specify the image metadata here
     val userName = "fcgeovane"
-    val version = "1.3.0"
+    val version = "1.3.1"
     name = "$userName/${project.name}:$version"
 
     // Please add the tags if you need more registries/userNames/tags.
